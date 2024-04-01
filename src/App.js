@@ -8,10 +8,13 @@ import AddPatient from "./Pages/AddPatient/AddPatient";
 import DrugList from "./Pages/DrugList/DrugList";
 import ElementList from "./Pages/ElementList/ElementList";
 import Register from "./Pages/Authentication/Register";
+import Navbar from "./Pages/Shared/Navbar";
+import Footer from "./Pages/Shared/Footer";
 
 function App() {
   return (
     <div>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
@@ -20,6 +23,7 @@ function App() {
         <Route path="/elementList" element={<ElementList />} />
         <Route path="/register" element={<Register />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
