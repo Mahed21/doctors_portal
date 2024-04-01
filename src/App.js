@@ -7,6 +7,7 @@ import Login from "./Pages/Authentication/Login";
 import AddPatient from "./Pages/AddPatient/AddPatient";
 import DrugList from "./Pages/DrugList/DrugList";
 import ElementList from "./Pages/ElementList/ElementList";
+import Register from "./Pages/Authentication/Register";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/addPatient" element={<AddPatient />} />
         <Route path="/drugList" element={<DrugList />} />
         <Route path="/elementList" element={<ElementList />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );
