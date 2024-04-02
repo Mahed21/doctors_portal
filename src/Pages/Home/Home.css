@@ -1,0 +1,9 @@
+.home_page {
+  min-height: 100vh;
+}
+.custom-table {
+  background-color: #e2e2e2;
+}
+.custom-table th {
+  text-align: center;
+}
