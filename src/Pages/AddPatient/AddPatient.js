@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const AddPatient = () => {
@@ -7,18 +7,20 @@ const AddPatient = () => {
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
-  const [patientID, setpatientID] = useState("");
   let navigate = useNavigate();
 
   const PatientInfo = (e) => {
     e.preventDefault();
+    const firstName = name.split(" ")[0].trim();
+    const generatedId = `${firstName}${number}${age}`;
+    // console.log(patientNewID);
     const patientDetails = {
       name: name,
       age: age,
       number: number,
       email: email,
       gender: gender,
-      patientId: 15,
+      patientId: generatedId,
     };
     fetch(`http://localhost:5000/patientDetails`, {
       method: "POST",

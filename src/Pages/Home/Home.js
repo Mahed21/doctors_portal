@@ -3,18 +3,14 @@ import "./Home.css";
 import HomeRows from "./HomeRows";
 
 const Home = () => {
-
   const [patientDetails, setPatientDetails] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/patientDetails")
       .then((res) => res.json())
       .then((data) => {
-
-
         setPatientDetails(data.data);
       });
   }, []);
-
 
   return (
     <div className="container home_page mt-5 d-flex justify-content-center">
@@ -22,7 +18,7 @@ const Home = () => {
         <table className="table custom-table">
           <thead>
             <tr>
-              <th scope="col">ID</th>
+              <th scope="col">Patient ID</th>
               <th scope="col">Name</th>
               <th scope="col">Age</th>
               <th scope="col">Last Visited</th>
@@ -31,11 +27,7 @@ const Home = () => {
           </thead>
           <tbody>
             {patientDetails.map((data, index) => (
-              <HomeRows
-                data={data}
-                key={data._id}
-                index={index}
-              ></HomeRows>
+              <HomeRows data={data} key={data._id} index={index}></HomeRows>
             ))}
           </tbody>
         </table>
