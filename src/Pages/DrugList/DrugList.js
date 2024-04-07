@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import { useNavigate } from "react-router-dom";
 import DrugListRow from "./DrugListRow";
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const DrugList = () => {
-
   let navigate = useNavigate();
   const [drugName, setDrugName] = useState("");
   const [groupName, setGroupName] = useState("");
@@ -62,16 +61,16 @@ const DrugList = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.status === "success") {
-          alert("New Patient Added Successfully");
-          navigate("/drugList");
+          alert("New Drug Added Successfully");
+          closeModal();
+          setAllDrugs((prevState) => [...prevState, drugDetails]);
         } else {
           alert(data.data);
         }
       });
   };
 
-
-  const [allDrugs, setAllDrugs] = useState("");
+  const [allDrugs, setAllDrugs] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:5000/drugsDetails")
@@ -81,7 +80,6 @@ const DrugList = () => {
       });
   }, []);
 
-
   return (
     <div>
       <div className="container mt-5 d-flex justify-content-between">
@@ -90,7 +88,9 @@ const DrugList = () => {
         </div>
         <div>
           <div>
-            <button onClick={openModal} className="btn btn-primary btn-success">Add New Drug</button>
+            <button onClick={openModal} className="btn btn-primary btn-success">
+              Add New Drug
+            </button>
           </div>
         </div>
       </div>
@@ -110,7 +110,11 @@ const DrugList = () => {
               </thead>
               <tbody>
                 {allDrugs?.map((data, index) => (
-                  <DrugListRow data={data} key={data._id} index={index}></DrugListRow>
+                  <DrugListRow
+                    data={data}
+                    key={data._id}
+                    index={index}
+                  ></DrugListRow>
                 ))}
               </tbody>
             </table>
@@ -125,35 +129,72 @@ const DrugList = () => {
         contentLabel="Example Modal"
       >
         <form onSubmit={DrugInfo}>
-
           <h4 className="mb-2 text-center">Add New Drug</h4>
-          <div className='w-96'>
-
+          <div className="w-96">
             <div className="form-group">
-              <label htmlFor="drugName" className='mr-2'>Drug Name:</label>
-              <input id="drugName" type="text" name='drugName' className="px-3 py-2 form-control" onChange={(e) => setDrugName(e.target.value)} />
+              <label htmlFor="drugName" className="mr-2">
+                Drug Name:
+              </label>
+              <input
+                id="drugName"
+                type="text"
+                name="drugName"
+                className="px-3 py-2 form-control"
+                onChange={(e) => setDrugName(e.target.value)}
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="groupName" className='mr-2'>Group Name:</label>
-              <input id="groupName" type="text" name='groupName' className="px-3 py-2 form-control" onChange={(e) => setGroupName(e.target.value)} />
+              <label htmlFor="groupName" className="mr-2">
+                Group Name:
+              </label>
+              <input
+                id="groupName"
+                type="text"
+                name="groupName"
+                className="px-3 py-2 form-control"
+                onChange={(e) => setGroupName(e.target.value)}
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="reason" className='mr-2'>Reason:</label>
-              <input id="reason" type="text" name='reason' className="px-3 py-2 form-control" onChange={(e) => setReason(e.target.value)} />
+              <label htmlFor="reason" className="mr-2">
+                Reason:
+              </label>
+              <input
+                id="reason"
+                type="text"
+                name="reason"
+                className="px-3 py-2 form-control"
+                onChange={(e) => setReason(e.target.value)}
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="company" className='mr-2'>Company Name:</label>
-              <input id="company" type="text" name='company' className="px-3 py-2 form-control" onChange={(e) => setCompany(e.target.value)} />
+              <label htmlFor="company" className="mr-2">
+                Company Name:
+              </label>
+              <input
+                id="company"
+                type="text"
+                name="company"
+                className="px-3 py-2 form-control"
+                onChange={(e) => setCompany(e.target.value)}
+              />
             </div>
 
             <div className="form-group">
-              <label htmlFor="dosage" className='mr-2'>Dosage:</label>
-              <input id="dosage" type="text" name='dosage' className="px-3 py-2 form-control" onChange={(e) => setDosage(e.target.value)} />
+              <label htmlFor="dosage" className="mr-2">
+                Dosage:
+              </label>
+              <input
+                id="dosage"
+                type="text"
+                name="dosage"
+                className="px-3 py-2 form-control"
+                onChange={(e) => setDosage(e.target.value)}
+              />
             </div>
-
           </div>
 
           <br />
@@ -164,7 +205,6 @@ const DrugList = () => {
               Cancel
             </button>
           </div>
-
         </form>
       </Modal>
     </div>
