@@ -5,7 +5,7 @@ const HomeRows = (props, index) => {
 
   return (
     <tr>
-      <th scope="row">{patientId}</th>
+      <th scope="row">{number}</th>
       <td>{name}</td>
       <td>{gender}</td>
       <td>{updatedAt}</td>
