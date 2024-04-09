@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import HomeRows from "./HomeRows";
+import { useQuery } from "@tanstack/react-query";
 
 const Home = () => {
   const [patientDetails, setPatientDetails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+
   useEffect(() => {
     fetch(`http://localhost:5000/patientDetails?page=${currentPage}`)
       .then((res) => res.json())
@@ -26,7 +28,7 @@ const Home = () => {
           <div className="me-2">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="exampleInputsearch1"
               placeholder="Search by phone number"
             />
@@ -52,7 +54,12 @@ const Home = () => {
           </thead>
           <tbody>
             {patientDetails.map((data, index) => (
-              <HomeRows data={data} key={data._id} index={index}></HomeRows>
+              <HomeRows
+                data={data}
+                key={data._id}
+                index={index}
+                // afterUpdate={(event) => refetch()}
+              ></HomeRows>
             ))}
           </tbody>
         </table>
@@ -61,9 +68,9 @@ const Home = () => {
             <button
               key={page}
               onClick={() => handlePageChange(page)}
-              className="  btn
-            btn-primary
-            me-1"
+              className={`btn ${
+                page === currentPage ? "btn-primary" : "btn-secondary"
+              } me-1`}
             >
               {page}
             </button>
