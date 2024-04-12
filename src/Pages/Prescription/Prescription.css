@@ -1,0 +1,17 @@
+.addPrescription {
+  position: relative; /* Make sure the container is positioned */
+  min-height: 100vh;
+}
+
+.addPrescription::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%; /* Cover the entire container */
+  height: 100%;
+  background-image: url("../../image/logo.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  opacity: 0.5; /* Adjust opacity as needed */
+}

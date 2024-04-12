@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 const customStyles = {
   content: {
@@ -14,10 +15,12 @@ const customStyles = {
 Modal.setAppElement("#root");
 
 const HomeRows = (props, index) => {
-  const { gender, email, name, number, patientId, updatedAt, _id } = props.data;
+  const { gender, email, name, number, patientId, updatedAt, _id, age } =
+    props.data;
   const { afterUpdate } = props;
   const [singlePatientInfo, setSinglePatientInfo] = useState({});
   const [modalIsOpen, setIsOpen] = React.useState(false);
+  let navigate = useNavigate();
 
   function openModal() {
     setIsOpen(true);
@@ -57,9 +60,12 @@ const HomeRows = (props, index) => {
         }
       });
   };
-  // useEffect(() => {
-  //   console.log(singlePatientInfo);
-  // }, [singlePatientInfo]);
+  const addPrescription = (_id, name, age, gender, number) => {
+    //console.log(_id, name, age, gender, number);
+    navigate("/addPrescription", {
+      state: { _id: _id, name: name, age: age, gender: gender, number: number },
+    });
+  };
 
   return (
     <tr>
@@ -75,7 +81,12 @@ const HomeRows = (props, index) => {
           View Profile
         </button>
         <button className="btn btn-success me-1">Previous Prescription</button>
-        <button className="btn btn-info me-1">Add Prescription</button>
+        <button
+          className="btn btn-info me-1"
+          onClick={() => addPrescription(_id, name, age, gender, number)}
+        >
+          Add Prescription
+        </button>
         <button className="btn btn-danger" onClick={() => deletePatient(_id)}>
           Delete
         </button>
