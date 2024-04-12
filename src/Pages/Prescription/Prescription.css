@@ -1,6 +1,12 @@
 .addPrescription {
-  position: relative; /* Make sure the container is positioned */
-  min-height: 100vh;
+  position: relative;
+  width: 21cm;
+  height: 29.7cm;
+  margin: 50px auto;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .addPrescription::before {
@@ -8,10 +14,26 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%; /* Cover the entire container */
+  width: 100%;
   height: 100%;
   background-image: url("../../image/logo.png");
   background-repeat: no-repeat;
-  background-position: bottom;
-  opacity: 0.5; /* Adjust opacity as needed */
+  background-position: center center;
+  opacity: 0.5;
+}
+
+.addPrescription .row {
+  position: relative; /* Ensure proper positioning of child elements */
+}
+
+.prescription_input,
+input[type="checkbox"] {
+  position: relative;
+  width: 100%; /* Ensure full width within their parent */
+  border: none;
+}
+
+/* Additional styles for checkbox labels */
+label {
+  margin-right: 10px; /* Adjust spacing between checkbox and label */
 }
