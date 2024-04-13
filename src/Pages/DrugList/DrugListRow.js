@@ -2,7 +2,23 @@ import React from 'react';
 
 const DrugListRow = (props, index) => {
 
-    const { drugName, groupName, reason, company, dosage, updatedAt } = props.data;
+    const { drugName, groupName, reason, company, dosage, updatedAt, _id } = props.data;
+
+    const deleteDrug = (id) => {
+        fetch(`http://localhost:5000/drugsDetails/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                //console.log(data);
+                if (data.status === "success") {
+                    // afterUpdate();
+                    alert("Successfully deleted");
+                } else {
+                    alert("Problem occure while deleting data");
+                }
+            });
+    };
 
     return (
         <tr>
@@ -12,8 +28,7 @@ const DrugListRow = (props, index) => {
             <td>{dosage}</td>
             <td>{reason}</td>
             <td>
-                <button className="btn btn-primary me-1">Drug Profile</button>
-                <button className="btn btn-danger">Delete</button>
+                <button className="btn btn-danger" onClick={() => deleteDrug(_id)}>Delete</button>
             </td>
         </tr>
     );
