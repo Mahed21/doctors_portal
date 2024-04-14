@@ -30,15 +30,15 @@ const Home = () => {
               type="text"
               className="form-control"
               id="exampleInputsearch1"
-              placeholder="Search by phone number"
+              placeholder="Phone Number"
             />
           </div>
           <div>
             <button
               className="btn
-            btn-primary"
+            btn-outline-success"
             >
-              search
+              Search
             </button>
           </div>
         </div>
@@ -48,6 +48,7 @@ const Home = () => {
               <th scope="col">Number</th>
               <th scope="col">Name</th>
               <th scope="col">Age</th>
+              <th scope="col">Gender</th>
               <th scope="col">Last Visited</th>
               <th scope="col">Action</th>
             </tr>
@@ -58,7 +59,7 @@ const Home = () => {
                 data={data}
                 key={data._id}
                 index={index}
-                // afterUpdate={(event) => refetch()}
+              // afterUpdate={(event) => refetch()}
               ></HomeRows>
             ))}
           </tbody>
@@ -68,9 +69,8 @@ const Home = () => {
             <button
               key={page}
               onClick={() => handlePageChange(page)}
-              className={`btn ${
-                page === currentPage ? "btn-primary" : "btn-secondary"
-              } me-1`}
+              className={`btn ${page === currentPage ? "btn-success" : "btn-outline-success"
+                } me-1`}
             >
               {page}
             </button>

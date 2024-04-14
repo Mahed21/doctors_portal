@@ -90,7 +90,7 @@ const ElementList = () => {
         </div>
         <div>
           <div>
-            <button onClick={openModal} className="btn btn-primary btn-success">Add New Element</button>
+            <button onClick={openModal} className="btn btn-outline-success">Add New Element</button>
           </div>
         </div>
       </div>

@@ -88,7 +88,7 @@ const DrugList = () => {
         </div>
         <div>
           <div>
-            <button onClick={openModal} className="btn btn-primary btn-success">
+            <button onClick={openModal} className="btn btn-outline-success">
               Add New Drug
             </button>
           </div>

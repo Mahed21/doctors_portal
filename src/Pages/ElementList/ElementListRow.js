@@ -1,4 +1,5 @@
 import React from 'react';
+import { PiTrashFill } from "react-icons/pi";
 
 const ElementListRow = (props, index) => {
 
@@ -27,7 +28,7 @@ const ElementListRow = (props, index) => {
             <td>{reason}</td>
             <td>{rules}</td>
             <td>
-                <button className="btn btn-danger" onClick={() => deleteElement(_id)}>Delete</button>
+                <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete Element" className="btn btn-danger" onClick={() => deleteElement(_id)}> <PiTrashFill /></button>
             </td>
         </tr>
     );

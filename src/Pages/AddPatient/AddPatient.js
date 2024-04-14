@@ -50,13 +50,13 @@ const AddPatient = () => {
 
   return (
     <div className="authentication_background">
-      <div className=" d-flex justify-content-center">
-        <div>
-          <h3 className="mt-5">Add New Patient</h3>
+      <div className="d-flex justify-content-center ">
+        <div className="mt-5 border w-25 p-5 rounded shadow">
+          <h3 className="text-center">Add New Patient</h3>
 
           <form onSubmit={PatientInfo}>
             <div className="form-group">
-              <label htmlFor="exampleInputName1">Enter Patient Name</label>
+              <label htmlFor="exampleInputName1">Patient Name</label>
               <input
                 className="form-control"
                 id="exampleInputName1"
@@ -65,7 +65,7 @@ const AddPatient = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="exampleInputAge1">Enter Patient Age</label>
+              <label htmlFor="exampleInputAge1">Patient Age</label>
               <input
                 className="form-control"
                 id="exampleInputAge1"
@@ -74,7 +74,7 @@ const AddPatient = () => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="exampleInputNumber1">Enter Patient Number</label>
+              <label htmlFor="exampleInputNumber1">Patient Number</label>
               <input
                 className="form-control"
                 id="exampleInputNumber1"
@@ -106,7 +106,7 @@ const AddPatient = () => {
               </select>
             </div>
 
-            <button type="submit" className="btn btn-primary mt-3">
+            <button type="submit" className="btn btn-outline-success mt-3">
               Submit
             </button>
           </form>

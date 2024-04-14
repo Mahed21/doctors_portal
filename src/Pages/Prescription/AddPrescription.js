@@ -37,16 +37,16 @@ const AddPrescription = (props) => {
         <div className="col-lg-5 col-md-6 col-sm-12">
           <h6>Chamber Name</h6>
           <h6>Address: Sylhet</h6>
-          <h6>Contact Number:01777857557 </h6>
+          <h6>Contact Number: 01777857557 </h6>
         </div>
         <div className="col-lg-2">
           <img src={logo} alt="" className="d-none d-md-block img-fluid" />
         </div>
         <div className="col-lg-5 col-md-6 col-sm-12">
           <div>
-            <h6>Doctors Name:abcd Ahmed chy</h6>
+            <h6>Doctors Name: abcd Ahmed chy</h6>
             <h6>Qualification</h6>
-            <h6>Contact Number:01777857557 </h6>
+            <h6>Contact Number: 01777857557 </h6>
           </div>
         </div>
       </div>
@@ -56,14 +56,14 @@ const AddPrescription = (props) => {
       <div className="row">
         <div className="col-lg-6 col-md-6 col-sm-12">
           <h6>Reg. No:</h6>
-          <h6>PatientName:{name}</h6>
-          <h6>Age:{age} </h6>
-          <h6>Number:{number} </h6>
+          <h6>Name: {name}</h6>
+          <h6>Age: {age} year(s) old </h6>
+          <h6>Number: {number} </h6>
         </div>
         <div className="col-lg-6 col-md-6 col-sm-12 d-flex justify-content-end">
           <div>
             <h6>Date: {formattedDate}</h6>
-            <h6>Reffered By:ABCD </h6>
+            <h6>Reffered by: ABCD </h6>
           </div>
         </div>
       </div>
@@ -85,9 +85,9 @@ const AddPrescription = (props) => {
               <textarea
                 className="form-control rounded-2 mb-2"
                 style={{ height: "70%" }}
-                placeholder="Investigations"
+                placeholder="Tests"
               />
-              <button className="btn btn-primary">Add</button>
+              <button className="btn btn-outline-success">Add</button>
             </div>
             <div style={{ height: "33%" }}>
               <textarea
@@ -95,7 +95,7 @@ const AddPrescription = (props) => {
                 style={{ height: "70%" }}
                 placeholder="Notes"
               />
-              <button className="btn btn-primary">Add</button>
+              <button className="btn btn-outline-success">Add</button>
             </div>
             <div style={{ height: "33%" }}>
               <textarea
@@ -103,7 +103,7 @@ const AddPrescription = (props) => {
                 style={{ height: "70%" }}
                 placeholder="Advice"
               />
-              <button className="btn btn-primary">Add</button>
+              <button className="btn btn-outline-success">Add</button>
             </div>
           </div>
         </div>
@@ -125,7 +125,7 @@ const AddPrescription = (props) => {
                 {
                   i === newMedicine?.length - 1 ? <span
                     class="d-flex align-items-center">
-                    <button onClick={addNewMedicine} class="d-flex align-items-center btn btn-primary ">
+                    <button onClick={addNewMedicine} class="d-flex align-items-center btn btn-outline-success ">
                       +
                     </button>
                   </span> : null
