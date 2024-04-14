@@ -1,12 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FaHospitalUser } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <Link class="navbar-brand" to="/">
-          Doctor's Portal
+          <FaHospitalUser className="fs-1 ms-3" />
         </Link>
         <button
           class="navbar-toggler"
@@ -20,7 +21,7 @@ const Navbar = () => {
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <Link
                 to="/drugList"
