@@ -105,7 +105,7 @@ const DrugList = () => {
                   <th scope="col">Company</th>
                   <th scope="col">Dosage</th>
                   <th scope="col">Reason</th>
-                  <th scope="col">Action</th>
+                  <th scope="col">Delete</th>
                 </tr>
               </thead>
               <tbody>
