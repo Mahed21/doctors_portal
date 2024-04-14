@@ -33,7 +33,15 @@ const AddPatient = () => {
       .then((data) => {
         if (data.status === "success") {
           alert("New Patient Added Successfully");
-          navigate("/");
+
+          navigate("/addPrescription", {
+            state: {
+              name: name,
+              age: age,
+              gender: gender,
+              number: number,
+            },
+          });
         } else {
           alert(data.data);
         }

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 import "./Prescription.css";
 import logo from "../../image/logo.png";
 const AddPrescription = (props) => {
   const { state } = useLocation();
-  const { _id, name, age, gender, number } = state;
+  const { name, age, gender, number } = state;
   const today = new Date();
   const months = [
     "January",
@@ -20,19 +20,10 @@ const AddPrescription = (props) => {
     "November",
     "December",
   ];
-  const formattedDate = `${today.getDate()} ${months[today.getMonth()]
-    } ${today.getFullYear()}`;
+  const formattedDate = `${today.getDate()} ${
+    months[today.getMonth()]
+  } ${today.getFullYear()}`;
   //console.log(_id, name, age, gender, number);
-
-  const [newMedicine, setnewMedicine] = useState([0]);
-
-  const addNewMedicine = () => {
-    const n = [...newMedicine];
-    n.push(n.length);
-    setnewMedicine(n);
-  }
-
-
   return (
     <div className="addPrescription mt-5 container">
       <div className="row">
@@ -75,51 +66,56 @@ const AddPrescription = (props) => {
       {/* prescription part */}
 
       <div className="row">
-        <div className="col-lg-3 d-none d-lg-block border-end border-dark" style={{ height: "823px" }}>
-          <div className="d-flex flex-column justify-content-between" style={{ height: "100%" }}>
+        <div
+          className="col-lg-3 d-none d-lg-block border-end border-dark"
+          style={{ height: "823px" }}
+        >
+          <div
+            className="d-flex flex-column justify-content-between"
+            style={{ height: "100%" }}
+          >
             <div style={{ height: "33%" }}>
-              <textarea className="form-control rounded-2 mb-2" style={{ height: "70%" }} placeholder="Investigations" />
+              <textarea
+                className="form-control rounded-2 mb-2"
+                style={{ height: "70%" }}
+                placeholder="Investigations"
+              />
               <button className="btn btn-primary">Add</button>
             </div>
             <div style={{ height: "33%" }}>
-              <textarea className="form-control rounded-2 mb-2" style={{ height: "70%" }} placeholder="Notes" />
+              <textarea
+                className="form-control rounded-2 mb-2"
+                style={{ height: "70%" }}
+                placeholder="Notes"
+              />
               <button className="btn btn-primary">Add</button>
             </div>
             <div style={{ height: "33%" }}>
-              <textarea className="form-control rounded-2 mb-2" style={{ height: "70%" }} placeholder="Advice" />
+              <textarea
+                className="form-control rounded-2 mb-2"
+                style={{ height: "70%" }}
+                placeholder="Advice"
+              />
               <button className="btn btn-primary">Add</button>
             </div>
           </div>
         </div>
         <div className="col-lg-9">
+          <div className="d-flex">
+            <input value={1} readOnly className="prescription_input w-25" />
+            <input placeholder="Medicine Name" className="prescription_input" />
+            <div className="d-flex align-items-center me-2">
+              <input type="checkbox" id="night" name="time" value="night" />
+              <label htmlFor="night">Night</label>
 
-          {
-            newMedicine?.map((i) => {
-              return <div className="d-flex">
-                <input value={newMedicine.length} readOnly className="prescription_input w-25" />
-                <input placeholder="Medicine Name" className="prescription_input" />
-                <div className="d-flex align-items-center me-2">
-                  <input type="checkbox" id="night" name="time" value="night" />
-                  <label htmlFor="night">Night</label>
+              <input type="checkbox" id="morning" name="time" value="morning" />
+              <label htmlFor="morning">Morning</label>
 
-                  <input type="checkbox" id="morning" name="time" value="morning" />
-                  <label htmlFor="morning">Morning</label>
-
-                  <input type="checkbox" id="lunch" name="time" value="lunch" />
-                  <label htmlFor="lunch">Lunch</label>
-                </div>
-                <input placeholder="Duration" className="prescription_input" />
-                {
-                  i === newMedicine?.length - 1 ? <span
-                    class="d-flex align-items-center">
-                    <button onClick={addNewMedicine} class="d-flex align-items-center btn btn-primary ">
-                      +
-                    </button>
-                  </span> : null
-                }
-              </div>
-            })
-          }
+              <input type="checkbox" id="lunch" name="time" value="lunch" />
+              <label htmlFor="lunch">Lunch</label>
+            </div>
+            <input placeholder="Duration" className="prescription_input" />
+          </div>
         </div>
       </div>
     </div>

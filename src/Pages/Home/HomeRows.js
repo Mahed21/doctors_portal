@@ -63,7 +63,7 @@ const HomeRows = (props, index) => {
   const addPrescription = (_id, name, age, gender, number) => {
     //console.log(_id, name, age, gender, number);
     navigate("/addPrescription", {
-      state: { _id: _id, name: name, age: age, gender: gender, number: number },
+      state: { name: name, age: age, gender: gender, number: number },
     });
   };
 
